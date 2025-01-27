@@ -20,7 +20,23 @@
     <button onclick="checkGuess()">угодать</button>
     <div class="result" id="result"></div>
     <script>
-        const secretNumber=
+        const secretNumber=Math.floor(Math.random() *10)+1;//Загадать число от 1 до 10
+        function checkGuess() {
+            const userGuess=
+            parseInt(document.getElementById("guess").value);
+            const resultDiv=document.getElementById("result");
+
+            //сравнение введенного числа с загаданым
+            if(userGuess===secretNumber){
+               resultDiv.textContent="Поздравляю ты угадал число!";
+            }else if(userGuess<secretNumber){
+                resultDiv.textContent="Слишком низко попробуй еще раз!" ;             
+            }else if(userGuess<secretNumber){
+                resultDiv.textContent="Слишком высоко! попрбуй еще раз.";
+           }else{
+              resultDiv.textContent="Пожалуйста,введи корректное число.";
+              }
+           }
     </script>
 </body>
 </html>
